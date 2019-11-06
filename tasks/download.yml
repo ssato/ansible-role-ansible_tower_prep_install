@@ -1,0 +1,14 @@
+---
+- name: Ensure dir to saved downloaded files created
+  file:
+    path: "{{ atpi_workdir }}"
+    state: directory
+
+# yamllint disable-line rule:line-length
+# .. seealso:: https://docs.ansible.com/ansible-tower/latest/html/quickinstall/download_tower.html
+- name: Download the bundled Ansible Tower installation program
+  get_url:
+    url: "{{ atpi_url_base }}/{{ atpi_installer_file }}"
+    dest: "{{ atpi_workdir }}"
+
+# vim:sw=2:ts=2:et:

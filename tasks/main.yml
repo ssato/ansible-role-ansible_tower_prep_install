@@ -1,0 +1,8 @@
+---
+- include_tasks: pre.yml
+- include_tasks: download.yml
+# - include_tasks: mirror_repos.yml
+- include_tasks: test.yml
+- include_tasks: post.yml
+
+# vim:sw=2:ts=2:et:

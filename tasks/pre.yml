@@ -1,0 +1,19 @@
+---
+- name: Test variables are OK
+  assert:
+    that:
+      - atpi_workdir | d(false)
+      - atpi_workdir is string
+      - atpi_url_base | d(false)
+      - atpi_url_base is string
+      - atpi_installer_file | d(false)
+      - atpi_installer_file is string
+      - atpi_checksum_file | d(false)
+      - atpi_checksum_file is string
+    fail_msg: |
+      atpi_workdir: {{ atpi_workdir | d() }}
+      atpi_url_base: {{ atpi_url_base | d() }}
+      atpi_installer_file: {{ atpi_installer_file | d() }}
+      atpi_checksum_file: {{ atpi_checksum_file | d() }}
+
+# vim:sw=2:ts=2:et:

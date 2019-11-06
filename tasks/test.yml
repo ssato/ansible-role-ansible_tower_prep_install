@@ -1,0 +1,7 @@
+---
+- name: Test downloaded files are there
+  command: "test -f {{ item }}"
+  loop:
+    - "{{ atpi_workdir }}/{{ atpi_installer_file }}"
+
+# vim:sw=2:ts=2:et:

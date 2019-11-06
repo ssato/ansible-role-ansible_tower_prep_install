@@ -1,0 +1,30 @@
+---
+dependency:
+  name: galaxy
+driver:
+  # name: docker
+  name: podman
+lint:
+  name: yamllint
+platforms:
+  - name: ubi7
+    image: ubi7/ubi
+    registry:
+      url: registry.redhat.io
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+  inventory:
+    group_vars:
+      all:
+        nbc_dryrun: true
+
+scenario:
+  name: default
+verifier:
+  name: testinfra
+  lint:
+    name: flake8
+
+# vim:sw=2:ts=2:et:

@@ -1,0 +1,26 @@
+---
+sudo: required
+language: python
+python:
+  - 2.7
+  - 3.6
+
+# .. seealso:: https://github.com/travis-ci/travis-ci/issues/9815
+matrix:
+  include:
+    - python: 3.7
+      dist: xenial
+      sudo: true
+
+cache: pip
+services:
+  - docker
+before_install:
+  - sudo apt-get -qq update
+  - pip install -U pip-tools
+install:
+  - pip install tox-travis
+script:
+  - tox
+
+# vim:sw=2:ts=2:et:
